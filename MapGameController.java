@@ -50,6 +50,7 @@ public class MapGameController implements Initializable {
     }
 
     // Get users key actions
+    // score and HP 
     public void keyAction(KeyEvent event){
         KeyCode key = event.getCode(); System.out.println("keycode:"+key);
         if (key == KeyCode.H){
