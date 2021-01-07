@@ -17,9 +17,15 @@ public class MapGameController implements Initializable {
     public MoveChara chara;
     public GridPane mapGrid;
     public ImageView[] mapImageViews;
+    public Label HP;
+    public Label SCORE;
+    int hp = 500;
+    int score;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        HP.setText("HP:" + hp);
+        SCORE.setText("  SCORE:" + score);
         mapData = new MapData(21, 15);
         chara = new MoveChara(1, 1, mapData);
         mapImageViews = new ImageView[mapData.getHeight()*mapData.getWidth()];
@@ -70,6 +76,18 @@ public class MapGameController implements Initializable {
         chara.setCharaDirection(MoveChara.TYPE_UP);
         chara.move(0, -1);
         drawMap(chara, mapData);
+        hp = hp - 10;
+        System.out.println("HP:"+ hp);
+        HP.setText("HP:" + hp);
+        score = 500 - (500-hp);
+        System.out.println("SCORE:" + score);
+        SCORE.setText("  SCORE:" + score);
+        if(hp == 0){
+            chara = new MoveChara(1,1,mapData);
+            hp = 500;
+            score = score - 500;
+            System.out.println("GameOver!!");
+        }
     }
 
     // Operations for going the cat down
@@ -78,6 +96,18 @@ public class MapGameController implements Initializable {
         chara.setCharaDirection(MoveChara.TYPE_DOWN);
         chara.move(0, 1);
         drawMap(chara, mapData);
+        hp = hp - 10;
+        System.out.println("HP:"+ hp);
+        score = 500 - (500-hp);
+        System.out.println("SCORE:" + score);
+        HP.setText("HP:" + hp);
+        SCORE.setText("  SCORE:" + score);
+        if(hp == 0){
+            chara = new MoveChara(1,1,mapData);
+            hp = 500;
+            score = score - 500;
+            System.out.println("GameOver!!");
+        }
     }
 
     // Operations for going the cat right
@@ -86,6 +116,18 @@ public class MapGameController implements Initializable {
         chara.setCharaDirection(MoveChara.TYPE_LEFT);
         chara.move(-1, 0);
         drawMap(chara, mapData);
+        hp = hp - 10;
+        System.out.println("HP:"+ hp);
+        score = 500 - (500-hp);
+        System.out.println("SCORE:" + score);
+        HP.setText("HP:" + hp);
+        SCORE.setText("  SCORE:" + score);
+        if(hp == 0){
+            chara = new MoveChara(1,1,mapData);
+            hp = 500;
+            score = score - 500;
+            System.out.println("GameOver!!");
+        }
     }
 
     // Operations for going the cat right
@@ -94,6 +136,18 @@ public class MapGameController implements Initializable {
         chara.setCharaDirection(MoveChara.TYPE_RIGHT);
         chara.move(1, 0);
         drawMap(chara, mapData);
+        hp = hp - 10;
+        System.out.println("HP:"+ hp);
+        score = 500 - (500-hp);
+        System.out.println("SCORE:" + score);
+        HP.setText("HP:" + hp);
+        SCORE.setText("  SCORE:" + score);
+        if(hp == 0){
+            chara = new MoveChara(1,1,mapData);
+            hp = 500;
+            score = score - 500;
+            System.out.println("GameOver!!");
+        }
     }
 
     public void func1ButtonAction(ActionEvent event) {
